@@ -6,13 +6,14 @@ import { useApp } from 'context'
 type TProps = {}
 
 const AddressForm: FC<TProps> = (): JSX.Element => {
-  const { getFieldProps, errors } = useApp()
+  const { formik: { getFieldProps, errors } } = useApp()
 
   return <fieldset>
     <legend>Endereço</legend>
 
     <Box mb={2}>
       <TextField
+        fullWidth
         label="Rua"
         helperText={errors.address?.street ?? ''}
         error={!!errors.address?.street ?? ''}
@@ -22,6 +23,7 @@ const AddressForm: FC<TProps> = (): JSX.Element => {
 
     <Box mb={2}>
       <TextField
+        fullWidth
         label="Número"
         helperText={errors.address?.number ?? ''}
         error={!!errors.address?.number ?? ''}
@@ -31,6 +33,7 @@ const AddressForm: FC<TProps> = (): JSX.Element => {
 
     <Box mb={2}>
       <TextField
+        fullWidth
         label="Complemento"
         helperText={errors.address?.complement ?? ''}
         error={!!errors.address?.complement ?? ''}
@@ -40,6 +43,7 @@ const AddressForm: FC<TProps> = (): JSX.Element => {
 
     <Box mb={2}>
       <TextField
+        fullWidth
         label="Bairro"
         helperText={errors.address?.district ?? ''}
         error={!!errors.address?.district ?? ''}
