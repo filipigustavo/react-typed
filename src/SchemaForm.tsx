@@ -3,6 +3,7 @@ import { Box, TextField, Button } from '@material-ui/core'
 
 import { useApp } from "context";
 import AddressForm from './AddressForm'
+import PhoneMaskedInput from "./PhoneMaskedInput";
 
 const SchemaForm: FC = (): JSX.Element => {
   const { formik: { getFieldProps, handleSubmit, errors } } = useApp()
@@ -60,13 +61,16 @@ const SchemaForm: FC = (): JSX.Element => {
 
     <AddressForm />
 
-    <Box mb={2}>
+    <Box mt={2} mb={2}>
       <TextField
         fullWidth
         label="Telefone"
         {...getFieldProps('phone')}
         helperText={errors.phone}
         error={!!errors.phone}
+        InputProps={{
+          inputComponent: PhoneMaskedInput
+        }}
       />
     </Box>
 

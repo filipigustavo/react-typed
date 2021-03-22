@@ -1,7 +1,7 @@
 import * as yup from 'yup'
 import type { TypeOf } from 'yup'
 
-export const phoneReg = /^(\(\d{2}\))(\s)(\d{4,5})-(\d{4})$/
+import { phoneReg } from './validation'
 
 export const schema = yup.object({
   name: yup.string().required().default(''),
@@ -15,7 +15,10 @@ export const schema = yup.object({
     complement: yup.string().notRequired().default(''),
     district: yup.string().required().default('')
   }),
-  phone: yup.string().matches(phoneReg, "phone is not valid").notRequired().default('')
+  phone: yup.string().matches(phoneReg, "phone is not valid").notRequired().default(''),
+  friends: yup.array().of(yup.object({
+    name: yup.string()
+  }).default([]))
 })
 
 export interface ISchema extends TypeOf<typeof schema> {}

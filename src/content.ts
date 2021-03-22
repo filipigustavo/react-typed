@@ -12,7 +12,8 @@ export const me: ISchema = {
     complement: "apto 202",
     district: "Meu Bairro"
   },
-  phone: "(41) 98899-1234"
+  phone: "(41) 98899-1234",
+  friends: []
 }
 
 export const you: ISchema = {
@@ -27,5 +28,6 @@ export const you: ISchema = {
     complement: "",
     district: "Meu Bairro"
   },
-  phone: "(41) 98899-1234"
+  phone: "(41) 98899-1234",
+  friends: []
 }
